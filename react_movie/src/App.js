@@ -1,18 +1,20 @@
-import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
 
 function App() {
-    const [counter, setCounter] = useState(0);
-    const onClick = () => {
-        setCounter((prev) => prev + 1);
-    };
-
-    console.log("use api");
-    return (
-        <div>
-            <h1>{counter}</h1>
-            <button onClick={onClick}> click me </button>
-        </div>
-    );
+  return (
+    <Router>
+      <Switch>
+        <Route path="/movie">
+          <Detail />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
